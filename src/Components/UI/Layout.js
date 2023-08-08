@@ -7,13 +7,16 @@ import darkTheme from "./themes/dark.json"
 export default function Layout({children}) {
     const [isLight, setIsLight] = useState(true);
     function handleToggleTheme(){setIsLight(!isLight);}
-    return 
-    <ThemeProvider theme={isLight? lightTheme : darkTheme}>
+
+    return(
+        <ThemeProvider theme={isLight? lightTheme : darkTheme}>
         <Wrapper>
             <GlobalStyle/>
                 {children}
-            <button onClick={handleToggleTheme}>Changer vers le {isLight? "DarkTheme" : "LightTheme" </button>
+            <button onClick={handleToggleTheme}>Changer vers le {isLight? "DarkTheme" : "LightTheme"} </button>
         </Wrapper>
     </ThemeProvider>
+     );
+}
 
 const Wrapper = styled.div``;
