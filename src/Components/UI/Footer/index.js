@@ -3,9 +3,15 @@ import styled from "styled-components"
 export default function Footer(){
     return (
         <Wrapper>
-            <h1>L'application de lecture de sons</h1>
+            <p>L'application de lecture de sons</p>
         </Wrapper>
     );
 }
 
-const Wrapper = styled.footer``;
+const Wrapper = styled.footer`
+height: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-top: solid 1px
+`;

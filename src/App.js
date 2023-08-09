@@ -1,13 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/UI/Layout';
+import Home from './components/Home';
+import About from './components/About';
 
 export default function App() {
   return (
-    <Layout>
-      <h1> Bonjour le Monde !</h1> 
-    </Layout>
+    <Router>
+      <Layout>
+          <Routes>
+            <Route element={<Home/>} path="/"/>
+            <Route element={<About/>} path="/about"/>
+          </Routes>
+      </Layout>
+    </Router>
   );
 }
-
-

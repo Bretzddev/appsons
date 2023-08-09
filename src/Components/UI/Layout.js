@@ -15,13 +15,22 @@ export default function Layout({children}) {
         <ThemeProvider theme={isLight? lightTheme : darkTheme}>
         <Wrapper>
             <GlobalStyle/>
-                <Header/>
+                <Header isLight={isLight} handleToggleTheme={handleToggleTheme} />
+                <Main>
                 {children}
+                </Main>
                 <Footer/>
-            <button onClick={handleToggleTheme}>Changer vers le {isLight? "DarkTheme" : "LightTheme"} </button>
         </Wrapper>
     </ThemeProvider>
      );
 }
 
 const Wrapper = styled.div``;
+
+const Main = styled.div`
+min-height: calc(100vh - 192px);
+width: 96%;
+max-width: 1240px;
+margin : auto;
+margin-top: 32px;
+`;
