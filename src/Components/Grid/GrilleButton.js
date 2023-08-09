@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
-export default function GrilleButton({isPlayed=false}){
-    return <Wrapper isPlayed={isPlayed}></Wrapper>;
+export default function GrilleButton({isPlayed=false, soundPlay}){
+    return <Wrapper isPlayed={isPlayed} onClick={soundPlay}></Wrapper>;
     }
 
     const Wrapper = styled.div`
@@ -9,6 +9,7 @@ export default function GrilleButton({isPlayed=false}){
     background: rgba(213, 236, 194, 1);
     background: radial-gradient(circle, rgba(213, 236, 194, 1) 0%, rgba(152, 221, 202, 1)100%);
     position: relative;
+    overflow: hidden;
     &::before {
         position: absolute;
         content: "";

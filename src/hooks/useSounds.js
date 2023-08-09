@@ -1,10 +1,11 @@
 import * as Tone from "tone";
+import { useEffect, useRef } from "react";
 
 export default function useSounds(){
 const mySampler = useRef(null);
 
 useEffect(()=> {
-    const sampler = new.Tone.sampler({
+    const sampler = new Tone.Sampler({
         urls: {
             C4: "C4.mp3",
             "D#4": "Ds4.mp3",
@@ -20,5 +21,11 @@ useEffect(()=> {
     });
 }, []);
 
-    return ;
+const buttonsList = [
+    {soundPlay: () => mySampler.current.triggerAttackRelease(["C4"], 4)},
+    {soundPlay: () => mySampler.current.triggerAttackRelease(["D#4"], 4)},
+    {soundPlay: () => mySampler.current.triggerAttackRelease(["F#4"], 4)},
+    {soundPlay: () => mySampler.current.triggerAttackRelease(["A4"], 4)},
+ ];
+    return {buttonsList};
 }

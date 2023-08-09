@@ -1,14 +1,15 @@
 import styled from "styled-components"
 import GrilleButton from "./GrilleButton";
-
-const list = ["el1", "el2", "el3","el4"];
+import useSounds from "hooks/useSounds";
 
 export default function Grid(){
+    const {buttonsList} = useSounds();
     return (
         <Wrapper>
             <h2>Grid page</h2>
             <Grille>
-                {list.map((el) => {return <GrilleButton key={el}>{el}</GrilleButton>; })}
+                {buttonsList.map(({soundPlay}, index) => {return <GrilleButton key={index} soundPlay={soundPlay}/>;
+                })}
             </Grille>
         </Wrapper>
     );
