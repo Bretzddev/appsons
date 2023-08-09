@@ -1,15 +1,16 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function Header({isLight, handleToggleTheme}){
+export default function Header(){
+    const location = useLocation();
     return (
         <Wrapper>
-            <h1>L'application de lecture de sons</h1>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-            </nav>
-            <button onClick={handleToggleTheme}>Changer vers le {isLight? "DarkTheme" : "LightTheme"} </button>
+            <h1>La nouvelle application</h1>
+            <NavRow>
+                <Link to="/"><MenuEl isCurrentPage={location.pathname ==="/"}>Home</MenuEl></Link>
+                <Link to="/grid"><MenuEl isCurrentPage={location.pathname ==="/grid"}>Grid</MenuEl></Link>
+                <Link to="/about"><MenuEl isCurrentPage={location.pathname ==="/about"}>About</MenuEl></Link>
+            </NavRow>
         </Wrapper>
     );
 }
@@ -25,7 +26,19 @@ border-bottom: solid 1px;
     text-decoration: none;
     color: inherit;
 }
-& a:first-child{
-    margin-right: 12px;
+&
+`;
+
+const MenuEl = styled.p`
+padding-bottom: 2px;
+margin: 10px;
+border-bottom: solid 2px  ${props => props.isCurrentPage ? "" : "transparent"};
+&:hover {
+    border-bottom: 2px ${props => props.isCurrentPage ? "solid" : "dotted"};
 }
+`;
+
+const NavRow = styled.nav`
+display: flex;
+flex-direction: row;
 `;

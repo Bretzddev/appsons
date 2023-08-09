@@ -1,9 +1,10 @@
 import styled from "styled-components"
 
-export default function Footer(){
+export default function Footer({isLight, handleToggleTheme}){
     return (
         <Wrapper>
-            <p>L'application de lecture de sons</p>
+            <p>La nouvelle application</p>
+            <button onClick={handleToggleTheme}>Changer vers le {isLight? "DarkTheme" : "LightTheme"} </button>
         </Wrapper>
     );
 }
@@ -11,7 +12,8 @@ export default function Footer(){
 const Wrapper = styled.footer`
 height: 80px;
 display: flex;
-justify-content: center;
+justify-content: space-between;
+padding: 0px 24px;
 align-items: center;
 border-top: solid 1px
 `;
