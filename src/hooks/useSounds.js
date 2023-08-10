@@ -48,10 +48,10 @@ return ()=> {
 }, []);
 
 const buttonsList = [
-    {soundPlay: () => soundPlay("A4"),isPlayed: isAPlayed,},
-    {soundPlay: () => soundPlay("B4"),isPlayed: isBPlayed,},
-    {soundPlay: () => soundPlay("C4"),isPlayed: isCPlayed,},
-    {soundPlay: () => soundPlay("D4"),isPlayed: isDPlayed,},
+    {soundPlay: () => soundPlay("A4"),isPlayed: isAPlayed, id: "A4"},
+    {soundPlay: () => soundPlay("B4"),isPlayed: isBPlayed, id: "B4"},
+    {soundPlay: () => soundPlay("C4"),isPlayed: isCPlayed, id: "C4"},
+    {soundPlay: () => soundPlay("D4"),isPlayed: isDPlayed, id: "D4"},
  ];
     return {buttonsList};
 }
