@@ -1,16 +1,16 @@
 import { styled } from "styled-components";
 
-export default function GrilleButton({isPlayed=false, soundPlay, id}){
+export default function GrilleButton({isPlayed=false, soundPlay, id, handleSampleChange}){
     return (<Wrapper isPlayed={isPlayed} onClick={soundPlay}>
         <label onClick={(e)=>e.stopPropagation()} htmlFor={id}>🎵</label>
-        <input onClick={(e)=>e.stopPropagation()} id={id} type="file"/>
+        <input onClick={(e)=>e.stopPropagation()} id={id} type="file" onChange={handleSampleChange}/>
     </Wrapper>);
     }
 
     const Wrapper = styled.div`
     border-radius: 4px;
-    background: rgba(213, 236, 194, 1);
-    background: radial-gradient(circle, rgba(213, 236, 194, 1) 0%, rgba(152, 221, 202, 1)100%);
+    background: rgba(100, 204, 197, 1);
+    background: radial-gradient(circle, rgba(140, 244, 237, 1) 0%, rgba(100, 204, 197, 1)100%);
     position: relative;
     overflow: hidden;
     &::before {
@@ -48,5 +48,6 @@ export default function GrilleButton({isPlayed=false, soundPlay, id}){
         position: absolute;
         right: 12px;
         top: 12px;
+        font-size: 24px;
     }
     `;

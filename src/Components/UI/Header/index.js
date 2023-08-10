@@ -21,7 +21,8 @@ display: flex;
 justify-content: space-between;
 padding: 0px 24px;
 align-items: center;
-border-bottom: solid 1px;
+color: ${(props)=> props.theme.backgroundColor}; 
+background-color: ${(props)=> props.theme.mainColor};
 & a {
     text-decoration: none;
     color: inherit;
@@ -30,6 +31,7 @@ border-bottom: solid 1px;
 `;
 
 const MenuEl = styled.p`
+font-size: 18px;
 padding-bottom: 2px;
 margin: 10px;
 border-bottom: solid 2px  ${props => props.isCurrentPage ? "" : "transparent"};

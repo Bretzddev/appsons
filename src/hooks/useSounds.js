@@ -47,11 +47,17 @@ return ()=> {
 };
 }, []);
 
+function handleSampleChange(note, file) {
+    let fileURL = URL.createObjectURL(file);
+    let buffer = new Tone.Buffer(fileURL);
+    mySampler.current.add(note, buffer, () => alert("Sample successful Changed"));
+}
+
 const buttonsList = [
-    {soundPlay: () => soundPlay("A4"),isPlayed: isAPlayed, id: "A4"},
-    {soundPlay: () => soundPlay("B4"),isPlayed: isBPlayed, id: "B4"},
-    {soundPlay: () => soundPlay("C4"),isPlayed: isCPlayed, id: "C4"},
-    {soundPlay: () => soundPlay("D4"),isPlayed: isDPlayed, id: "D4"},
+    {soundPlay: () => soundPlay("A4"),isPlayed: isAPlayed, id: "A4", handleSampleChange: (e) => handleSampleChange("A4", e.target.files[0]),},
+    {soundPlay: () => soundPlay("B4"),isPlayed: isBPlayed, id: "B4", handleSampleChange: (e) => handleSampleChange("B4", e.target.files[0]),},
+    {soundPlay: () => soundPlay("C4"),isPlayed: isCPlayed, id: "C4", handleSampleChange: (e) => handleSampleChange("C4", e.target.files[0]),},
+    {soundPlay: () => soundPlay("D4"),isPlayed: isDPlayed, id: "D4", handleSampleChange: (e) => handleSampleChange("D4", e.target.files[0]),},
  ];
     return {buttonsList};
 }

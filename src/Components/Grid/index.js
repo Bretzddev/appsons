@@ -8,8 +8,8 @@ export default function Grid(){
         <Wrapper>
             <h2>Grid page</h2>
             <Grille>
-                {buttonsList.map(({soundPlay, isPlayed, id }, index) => 
-                {return <GrilleButton key={index} soundPlay={soundPlay} isPlayed={isPlayed} id={id}/>;
+                {buttonsList.map(({soundPlay, isPlayed, id, handleSampleChange }, index) => 
+                {return <GrilleButton key={index} soundPlay={soundPlay} isPlayed={isPlayed} id={id} handleSampleChange={handleSampleChange}/>;
                 })}
             </Grille>
         </Wrapper>
